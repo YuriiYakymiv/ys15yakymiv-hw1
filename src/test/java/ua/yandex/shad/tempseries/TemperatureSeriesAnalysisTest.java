@@ -83,7 +83,7 @@ public class TemperatureSeriesAnalysisTest {
     @Test
     public void testFindTempClosestToZero() {
         double[] temperatureSeries = {0.1, -0.1, 2.0, 3.0, -4.0};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis();
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
         double expResult = 0.1;
         double actualResult = seriesAnalysis.findTempClosestToZero();
 

@@ -10,7 +10,7 @@ public class TemperatureSeriesAnalysis {
     public static final double MIN_TEMPERATURE = -273.0;
 
     public double[] getTemps() {
-        double[] result = new double[this.length];
+        double[] result = new double[temperatureSeries.length];
         for (int i = 0; i < this.length; i++) {
             result[i] = temperatureSeries[i];
         }
@@ -26,7 +26,7 @@ public class TemperatureSeriesAnalysis {
         this.length = tempSeries.length;
         this.temperatureSeries = new double[this.length];
         for (int i = 0; i < this.length; i++) {
-            this.temparatureSeries[i] = tempSeries;
+            this.temperatureSeries[i] = tempSeries[i];
         }
     }
 
@@ -115,16 +115,16 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue){
-        if ( length == 0 ) {
+        if (length == 0) {
             throw new IllegalArgumentException();
         }
-        double ans=temperatureSeries[0];
+        double ans = temperatureSeries[0];
         for (double val : temperatureSeries) {
-            if (Math.abs(ans - tempValue) < Math.abs(val - tempValue) {
+            if (Math.abs(val - tempValue) < Math.abs(ans - tempValue)) {
                 ans = val;
             }
             else {
-                if (Math.abs(((val - tempValue) - Math.abs(ans - tempValue)) < EPSILON) && ((val - tempValue) >= 0)) {
+                if ((Math.abs((double) (val - tempValue) - Math.abs(ans - tempValue)) < EPSILON) && ((val - tempValue) >= 0)) {
                         ans = val;
                 }
                 else {
