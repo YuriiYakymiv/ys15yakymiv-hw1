@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="27" failures="0" name="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" time="0.13" errors="0" skipped="0">
+<testsuite tests="27" failures="0" name="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" time="0.066" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -63,31 +63,31 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testDeviation_EmptyList" time="0.111"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempLessThen_returnsNull" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testSummaryStatistics_testValues" time="0.011"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testDeviation_EmptyList" time="0.033"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempLessThen_returnsNull" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testSummaryStatistics_testValues" time="0.016"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testMax" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testMin" time="0"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testMin" time="0.004"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testAddTemps_addToEmpty" time="0"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testAverage" time="0"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempsGreaterThen_Empty" time="0.001"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToZero_EmptyList" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToZero_WithTheSameValue" time="0"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToZero_WithTheSameValue" time="0.002"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testAddTemps_checkArrayLen" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testMin_EmptyList" time="0"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testMin_EmptyList" time="0.001"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToZero_WithTheSameAbsValue" time="0.001"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToValue_EmptyList" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToValue_EmptyList" time="0.002"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testAverage_EmptyList" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempGreaterThan" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testDeviation" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempGreaterThan" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testDeviation" time="0"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testAddTemps_needToResize" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testAddTemps_testOnLessThanAbsoluteMin" time="0.001"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempsLessThen_Empty" time="0.001"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempLessThan" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempGreaterThen_returnsNull" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testAddTemps_testOnLessThanAbsoluteMin" time="0"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempsLessThen_Empty" time="0"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempLessThan" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempGreaterThen_returnsNull" time="0"/>
   <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToZeroWithZero_Element" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToZero" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToValue" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testAddTemps_multipleAdding" time="0"/>
-  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testMax_EmptyList" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToZero" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testFindTempClosestToValue" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testAddTemps_multipleAdding" time="0.001"/>
+  <testcase classname="ua.yandex.shad.tempseries.TemperatureSeriesAnalysisTest" name="testMax_EmptyList" time="0"/>
 </testsuite>

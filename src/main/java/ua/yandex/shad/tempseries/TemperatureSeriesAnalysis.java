@@ -1,24 +1,15 @@
 package ua.yandex.shad.tempseries;
 import java.util.InputMismatchException;
-import static  java.lang.Math.*;
 
 public class TemperatureSeriesAnalysis {
 
-    private double[] temperatureSeries;
-    private static final double EPSILON = 0.00001;
-    private int length;
     public static final double MIN_TEMPERATURE = -273.0;
-
-    public double[] getTemps() {
-        double[] result = new double[temperatureSeries.length];
-        for (int i = 0; i < this.length; i++) {
-            result[i] = temperatureSeries[i];
-        }
-        return result;
-    }
+    private static final double EPSILON = 0.00001;
+    private double[] temperatureSeries;
+    private int length;
 
     public TemperatureSeriesAnalysis() {
-        temperatureSeries = new double[0];
+        this.temperatureSeries = new double[0];
         this.length = 0;
     }
 
@@ -30,43 +21,51 @@ public class TemperatureSeriesAnalysis {
         }
     }
 
-    public double average(){
+    public double[] getTemps() {
+        double[] result = new double[temperatureSeries.length];
+        for (int i = 0; i < this.length; i++) {
+            result[i] = temperatureSeries[i];
+        }
+        return result;
+    }
+
+    public double average() {
         if (this.length == 0) {
             throw new IllegalArgumentException();
         }
         else {
             double ans = 0;
             for (double val : temperatureSeries) {
-                ans+=val;
+                ans += val;
             }
             ans /= this.length;
             return ans;
         }
     }
 
-    public double deviation(){
+    public double deviation() {
         if (this.length == 0) {
             throw new IllegalArgumentException();
         }
         double ans = 0;
         double av = this.average();
         double sumSq = 0;
-        for ( double val : temperatureSeries) {
+        for (double val : temperatureSeries) {
             double valSq = 0;
-            valSq = (val-av)*(val-av);
-            sumSq+=valSq;
+            valSq = (val - av) * (val - av);
+            sumSq += valSq;
         }
-        ans = sumSq/length;
-        ans = sqrt(ans);
+        ans = sumSq / length;
+        ans = Math.sqrt(ans);
         return ans;
     }
 
-    public double min(){
+    public double min() {
         if (this.length == 0) {
             throw new IllegalArgumentException();
         }
         double min = temperatureSeries[0];
-        for ( double val : temperatureSeries) {
+        for (double val : temperatureSeries) {
             if (val < min) {
                 min = val;
             }
@@ -77,12 +76,12 @@ public class TemperatureSeriesAnalysis {
         return min;
     }
 
-    public double max(){
+    public double max() {
         if (length == 0) {
             throw new IllegalArgumentException();
         }
         double max = temperatureSeries[0];
-        for ( double val : temperatureSeries) {
+        for (double val : temperatureSeries) {
             if (val > max) {
                 max = val;
             }
@@ -93,110 +92,112 @@ public class TemperatureSeriesAnalysis {
         return max;
     }
 
-    public double findTempClosestToZero(){
+    public double findTempClosestToZero() {
         if (length == 0) {
             throw new IllegalArgumentException();
         }
-        double ans=temperatureSeries[0];
+        double closestToZero = temperatureSeries[0];
         for ( double val : temperatureSeries) {
-            if(Math.abs(val) < Math.abs(ans)) {
-                ans = val;
+            if(Math.abs(val) < Math.abs(closestToZero)) {
+                closestToZero = val;
             }
             else {
-                if ((Math.abs(val - Math.abs(ans)) < EPSILON) && (val >= 0)) {
-                    ans = val;
+                if ((Math.abs(val - Math.abs(closestToZero)) < EPSILON) && (val >= 0)) {
+                    closestToZero = val;
                 }
                 else {
                     continue;
                 }
             }
         }
-        return ans;
+        return closestToZero;
     }
 
-    public double findTempClosestToValue(double tempValue){
+    public double findTempClosestToValue(double tempValue) {
         if (length == 0) {
             throw new IllegalArgumentException();
         }
-        double ans = temperatureSeries[0];
+        double closestToVal = temperatureSeries[0];
         for (double val : temperatureSeries) {
-            if (Math.abs(val - tempValue) < Math.abs(ans - tempValue)) {
-                ans = val;
+            if (Math.abs(val - tempValue) < Math.abs(closestToVal - tempValue)) {
+                closestToVal = val;
             }
             else {
-                if ((Math.abs((double) (val - tempValue) - Math.abs(ans - tempValue)) < EPSILON) && ((val - tempValue) >= 0)) {
-                        ans = val;
+                if ((Math.abs((double) (val - tempValue) -
+                    Math.abs(closestToVal - tempValue)) < EPSILON) &&
+                    ((val - tempValue) >= 0)) {
+                        closestToVal = val;
                 }
                 else {
                     continue;
                 }
             }
         }
-        return ans;
-}
-
-    public double[] findTempsLessThen(double tempValue){
-        if (length == 0) {
-            throw new IllegalArgumentException();
-        }
-        int counter = 0;
-        for (double val : temperatureSeries) {
-            if (val < tempValue) {
-                counter++;
-            }
-        }
-        if (counter == 0) {
-            return null;
-        }
-        double[] ans = new double[counter];
-        int i = 0;
-        for (double val : temperatureSeries) {
-            if (val < tempValue) {
-                ans[i] = val;
-                i++;
-            }
-            else {
-                continue;
-            }
-        }
-        return ans;
+        return closestToVal;
     }
 
-    public double[] findTempsGreaterThen(double tempValue){
+    public double[] findTempsLessThen(double tempValue) {
         if (length == 0) {
             throw new IllegalArgumentException();
         }
-        int counter = 0;
+        int counterLess = 0;
         for (double val : temperatureSeries) {
-            if (val >= tempValue) {
-                counter++;
-            }
-            else {
-                continue;
+            if (val < tempValue) {
+                counterLess++;
             }
         }
-        if ( counter == 0 ) {
+        if (counterLess == 0) {
             return null;
         }
-        double[] ans = new double[counter];
         int i = 0;
+        double[] tempsLessThen = new double[counterLess];
         for (double val : temperatureSeries) {
-            if (val >= tempValue) {
-                ans[i] = val;
+            if (val < tempValue) {
+                tempsLessThen[i] = val;
                 i++;
             }
             else {
                 continue;
             }
         }
-        return ans;
+        return tempsLessThen;
+    }
+
+    public double[] findTempsGreaterThen(double tempValue) {
+        if (length == 0) {
+            throw new IllegalArgumentException();
+        }
+        int counterGreater = 0;
+        for (double val : temperatureSeries) {
+            if (val >= tempValue) {
+                counterGreater++;
+            }
+            else {
+                continue;
+            }
+        }
+        if (counterGreater == 0) {
+            return null;
+        }
+        int i = 0;
+        double[] tempsGreaterThenValue = new double[counterGreater];
+        for (double val : temperatureSeries) {
+            if (val >= tempValue) {
+                tempsGreaterThenValue[i] = val;
+                i++;
+            }
+            else {
+                continue;
+            }
+        }
+        return tempsGreaterThenValue;
     }
 
     public TempSummaryStatistics summaryStatistics() {
         return new TempSummaryStatistics(average(), deviation(), min(), max());
     }
 
-    public int addTemps(double ... temps){
+    public int addTemps(double ... temps) {
         for (int i = 0; i < temps.length; i++) {
             if (temps[i] < MIN_TEMPERATURE) {
                 throw new InputMismatchException();
