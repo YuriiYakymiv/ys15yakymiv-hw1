@@ -97,12 +97,13 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException();
         }
         double closestToZero = temperatureSeries[0];
-        for ( double val : temperatureSeries) {
-            if(Math.abs(val) < Math.abs(closestToZero)) {
+        for (double val : temperatureSeries) {
+            if (Math.abs(val) < Math.abs(closestToZero)) {
                 closestToZero = val;
             }
             else {
-                if ((Math.abs(val - Math.abs(closestToZero)) < EPSILON) && (val >= 0)) {
+                if (Math.abs(val - Math.abs(closestToZero)) < EPSILON
+                    && val >= 0) {
                     closestToZero = val;
                 }
                 else {
@@ -119,13 +120,14 @@ public class TemperatureSeriesAnalysis {
         }
         double closestToVal = temperatureSeries[0];
         for (double val : temperatureSeries) {
-            if (Math.abs(val - tempValue) < Math.abs(closestToVal - tempValue)) {
+            if (Math.abs(val - tempValue)
+                < Math.abs(closestToVal - tempValue)) {
                 closestToVal = val;
             }
             else {
-                if ((Math.abs((double) (val - tempValue) -
-                    Math.abs(closestToVal - tempValue)) < EPSILON) &&
-                    ((val - tempValue) >= 0)) {
+                if (Math.abs((double) (val - tempValue)
+                    - Math.abs(closestToVal - tempValue)) < EPSILON
+                    && (val - tempValue) >= 0) {
                         closestToVal = val;
                 }
                 else {
